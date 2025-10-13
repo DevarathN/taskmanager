@@ -1,0 +1,100 @@
+.todo-list {
+  width: 100%;
+  border-collapse: collapse; /* Ensures borders and widths align */
+  table-layout: fixed; /* Ensures equal-width columns */
+  margin-top: 50px;
+}
+
+.todo-list th,
+.todo-list td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: large;
+}
+
+.todo-list th {
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+.todo-list td {
+  word-wrap: break-word;
+}
+.edit-delete-view {
+  display: flex;
+  gap: 20px;
+}
+.edit-delete-view button {
+  border: none;
+  background-color: white;
+}
+.todo-form {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  width: 20%;
+  margin: 0 auto;
+  gap: 10px;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+}
+.todo-form input,
+.todo-form button {
+  padding: 15px;
+  border-radius: 5px;
+}
+.todo-form button {
+  border: none;
+}
+.todo-form label span.required {
+  color: red;
+}
+.task-overview {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  box-shadow: 1px 1px 1px 1px lightgray;
+
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.task-overview div {
+  width: 33%;
+  text-align: center;
+  padding: 20px !important;
+}
+.task-overview div:nth-child(1),
+.task-overview div:nth-child(2) {
+  border-right: 2px solid rgb(204, 204, 204);
+}
+.task-overview div span {
+  font-size: 40px;
+  font-weight: 600;
+}
+.title-add-todo {
+  margin-top: 20px;
+  box-shadow: 1px 1px 1px 1px lightgray;
+  padding: 30px;
+  border-radius: 10px;
+}
+.status-upcoming {
+  background: #ffd0230d;
+
+  color: #e4b401;
+  padding: 10px;
+  border-radius: 5px;
+}
+.status-completed {
+  background: #e7f7ef;
+  color: #0caf60;
+  padding: 10px;
+  border-radius: 5px;
+}

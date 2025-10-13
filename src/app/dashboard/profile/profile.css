@@ -1,0 +1,72 @@
+.profile-view-update label span.required {
+  color: red;
+}
+.profile-view-update {
+  position: absolute;
+  right: 0;
+
+  top: 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  padding: 20px;
+  width: 30%;
+  border-radius: 10px;
+}
+.profile-view-update input,
+.profile-view-update button {
+  padding: 10px;
+}
+.profile-view-update div button {
+  background-color: white;
+  border: none;
+}
+.task-overview {
+  display: flex;
+  justify-content: space-around; /* evenly space items */
+  gap: 10px; /* was 30px */
+  padding: 10px; /* was 20px */
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 10px;
+
+  width: 90%;
+}
+
+.task-overview div {
+  text-align: center;
+  padding: 5px; /* was 10px */
+  width: 33%;
+}
+
+.task-overview div:nth-child(1),
+.task-overview div:nth-child(2) {
+  border-right: 1px solid #ccc; /* thinner line */
+}
+
+.task-overview div p:last-of-type {
+  font-size: 40px;
+  font-weight: 600;
+  padding: 0;
+  padding: 0;
+}
+.task-overview div p:first-of-type {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 0;
+}
+.update-profile-btn {
+  background: #e7f7ef;
+  color: #097c44;
+  width: 50%;
+  margin: 0 auto;
+  border: none;
+  padding: 15px 0px !important;
+  border-radius: 5px;
+}
+hr {
+  border: 1px solid rgb(231, 231, 231);
+  width: 90%;
+}

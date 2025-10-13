@@ -1,0 +1,60 @@
+.noti-btn {
+  border: none;
+  background-color: white;
+}
+.notification-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 1;
+  background-color: white;
+  padding: 20px;
+  width: 25%;
+}
+.notification {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(226, 226, 226);
+}
+.notification .title-status {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.notification .title-status p {
+  font-weight: 600;
+  font-size: large;
+}
+.notification .title-status span {
+  font-size: 15px;
+  padding: 5px;
+}
+.notification .description {
+  color: grey;
+  font-size: small;
+}
+.notification .datetime {
+  color: rgb(104, 104, 104);
+  font-weight: 500;
+}
+.status-upcoming {
+  background: #ffd0230d;
+
+  color: #e4b401;
+  padding: 10px;
+  border-radius: 5px;
+}
+.status-completed {
+  background: #e7f7ef;
+  color: #0caf60;
+  padding: 10px;
+  border-radius: 5px;
+}

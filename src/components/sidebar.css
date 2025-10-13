@@ -1,0 +1,34 @@
+.nav-container > * {
+  text-decoration: none;
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-container a {
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.nav-container a:hover {
+  background-color: #f5f5f5;
+}
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  box-shadow: 1px 1px 1px 1px lightgray;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 10vw;
+  border-radius: 5px;
+}
+.profile-dropdown div button {
+  border: none;
+  background-color: white;
+}

@@ -1,0 +1,21 @@
+.superuser-nav-container {
+  width: 200px;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.superuser-nav-container a {
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 5px;
+  display: block;
+}
+
+.superuser-nav-container a:hover {
+  background-color: #e0e0e0;
+}
