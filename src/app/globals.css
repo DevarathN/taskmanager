@@ -5,9 +5,28 @@
 
 body {
   font-family: "Inter", sans-serif;
-  margin: 20px;
 }
 button:hover,
 i:hover {
   cursor: pointer;
+}
+.login-signup {
+  display: flex;
+  gap: 20px;
+}
+.login-redirect,
+.signup-redirect {
+  background-color: cadetblue;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  border-radius: 5px;
+}
+.signup-redirect {
+  background-color: cornflowerblue;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+  color: white;
 }

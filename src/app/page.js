@@ -17,16 +17,16 @@ export default function LandingPage() {
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <h1 className="text-3xl font-bold mb-4">Welcome to TaskFlow</h1>
       <p className="mb-4">Organize your tasks and manage roles efficiently.</p>
-      <div className="flex gap-4">
+      <div className="login-signup">
         <button
           onClick={() => router.push("/login")}
-          className="bg-blue-600 text-white px-4 py-2 rounded"
+          className="login-redirect"
         >
           Login
         </button>
         <button
           onClick={() => router.push("/signup")}
-          className="bg-green-600 text-white px-4 py-2 rounded"
+          className="signup-redirect"
         >
           Sign Up
         </button>

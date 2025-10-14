@@ -32,7 +32,9 @@ export default function LoginPage() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
     });
-    if (error) alert(error.message);
+    if (error) {
+      alert(error.message);
+    }
   };
 
   return (

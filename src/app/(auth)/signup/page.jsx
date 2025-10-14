@@ -18,37 +18,32 @@ export default function SignupPage() {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
+        options: { data: { full_name: fullname } },
       });
 
-      if (error) throw error;
-      const user = data.user;
-
-      if (user) {
-        const { error: insertError } = await supabase.from("users").insert([
-          {
-            id: user.id,
-            name: fullname,
-            email: user.email,
-            role: "user",
-          },
-        ]);
-
-        if (insertError) throw insertError;
+      if (error) {
+        console.log("error");
+        throw error;
       }
 
       alert("Signup successful! Please check your email.");
       router.push("/login");
     } catch (err) {
-      alert(err.message);
+      console.error(err);
+      alert(err?.message || JSON.stringify(err));
     } finally {
       setLoading(false);
     }
   };
+
   const handleGoogle = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
     });
-    if (error) alert(error.message);
+    if (error) {
+      console.error("Google Sign-In Error:", error);
+      alert(error.message);
+    }
   };
   return (
     <div className="signup-container">
