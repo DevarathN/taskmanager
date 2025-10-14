@@ -14,22 +14,9 @@ export default function Sidebar({ role }) {
 
   // Fetch current user
   useEffect(() => {
-    const getSession = async () => {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-      setUser(session?.user || null);
-    };
-
-    getSession();
-
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        setUser(session?.user || null);
-      }
-    );
-
-    return () => listener.subscription.unsubscribe();
+    supabase.auth.getSession().then(({ data }) => {
+      setUser(data?.session?.user || null);
+    });
 
     // Close dropdown if clicked outside
     const handleClickOutside = (e) => {
