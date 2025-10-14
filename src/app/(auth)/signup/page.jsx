@@ -40,6 +40,7 @@ export default function SignupPage() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
     });
+
     if (error) {
       console.error("Google Sign-In Error:", error);
       alert(error.message);
