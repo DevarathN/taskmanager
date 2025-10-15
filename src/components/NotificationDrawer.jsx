@@ -12,7 +12,7 @@ export default function NotificationDrawer() {
       .getSession()
       .then(({ data }) => data.session?.user);
     if (!user) {
-      console.log("Usser not found");
+      console.log("User not found");
       return;
     }
     const { data } = await supabase
