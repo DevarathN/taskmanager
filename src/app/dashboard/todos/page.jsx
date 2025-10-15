@@ -102,65 +102,68 @@ export default function TodosPage() {
           editing={editing}
           setEditing={setEditing}
         />
-        <table className="todo-list">
-          <thead>
-            <tr>
-              <th>ToDo</th>
-              <th>Due Date</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {todos.map((todo) => (
-              <tr key={todo.id} className="border-black">
-                <td>
-                  <strong>{todo.title}</strong>
-                  <p style={{ color: "grey", fontSize: "small" }}>
-                    {todo.description}
-                  </p>
-                </td>
-                <td className="text-sm">
-                  {new Date(todo.due_at).toLocaleString([], {
-                    day: "2-digit",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    month: "short",
-                  })}
-                </td>
-
-                <td>
-                  <span
-                    className={`font-semibold ${
-                      todo.completed ? "status-completed" : "status-upcoming"
-                    }`}
-                  >
-                    {todo.completed ? "Completed" : "Upcoming"}
-                  </span>
-                </td>
-                <td>
-                  <div className="edit-delete-view">
-                    <button
-                      onClick={() => {
-                        if (editing && editing.id === todo.id) setEditing(null);
-                        else setEditing(todo);
-                      }}
-                      className="text-blue-600"
-                    >
-                      <img src="/images/edit-text.png" alt="edit" />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(todo.id)}
-                      className="text-red-600"
-                    >
-                      <img src="/images/bin.png" alt="delete" />
-                    </button>
-                  </div>
-                </td>
+        {todos.length > 0 && (
+          <table className="todo-list">
+            <thead>
+              <tr>
+                <th>ToDo</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {todos.map((todo) => (
+                <tr key={todo.id} className="border-black">
+                  <td>
+                    <strong>{todo.title}</strong>
+                    <p style={{ color: "grey", fontSize: "small" }}>
+                      {todo.description}
+                    </p>
+                  </td>
+                  <td className="text-sm">
+                    {new Date(todo.due_at).toLocaleString([], {
+                      day: "2-digit",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      month: "short",
+                    })}
+                  </td>
+
+                  <td>
+                    <span
+                      className={`font-semibold ${
+                        todo.completed ? "status-completed" : "status-upcoming"
+                      }`}
+                    >
+                      {todo.completed ? "Completed" : "Upcoming"}
+                    </span>
+                  </td>
+                  <td>
+                    <div className="edit-delete-view">
+                      <button
+                        onClick={() => {
+                          if (editing && editing.id === todo.id)
+                            setEditing(null);
+                          else setEditing(todo);
+                        }}
+                        className="text-blue-600"
+                      >
+                        <img src="/images/edit-text.png" alt="edit" />
+                      </button>
+                      <button
+                        onClick={() => handleDelete(todo.id)}
+                        className="text-red-600"
+                      >
+                        <img src="/images/bin.png" alt="delete" />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );

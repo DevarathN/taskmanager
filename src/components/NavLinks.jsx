@@ -4,14 +4,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "@/lib/supabaseClient";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
 import "./sidebar.css";
 
-export default function Sidebar({ role }) {
+export default function NavLinks({ role }) {
   const pathname = usePathname();
   const [user, setUser] = useState(null);
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
-
+  const supabase = createClientComponentClient();
+  const router = useRouter();
   // Fetch current user
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -30,33 +33,20 @@ export default function Sidebar({ role }) {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    window.location.href = "/login";
-  };
 
-  const links =
-    role === "superuser"
-      ? [
-          { name: "Todos", path: "/dashboard/todos" },
-          { name: "Users", path: "/dashboard/users" },
-        ]
-      : [{ name: "Todos", path: "/dashboard/todos" }];
+    // 🧠 Wait a short moment for Supabase to clear cookies
+    setTimeout(() => {
+      router.refresh(); // force Next.js to recheck auth cookies
+      router.push("/login");
+    }, 300);
+  };
 
   return (
     <div>
       <nav className="nav-container">
-        {links.map((link) => (
-          <Link
-            key={link.path}
-            href={link.path}
-            className={
-              pathname === link.path
-                ? "font-bold text-blue-600"
-                : "text-gray-700"
-            }
-          >
-            {link.name}
-          </Link>
-        ))}
+        <Link key={"/dashboard/todos"} href={"/dashboard/todos"}>
+          Todos
+        </Link>
 
         {/* Profile dropdown */}
         <div className="relative" ref={dropdownRef}>

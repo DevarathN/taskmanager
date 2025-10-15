@@ -3,9 +3,11 @@
 import { useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { useRouter } from "next/navigation";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import "./signup.css";
 export default function SignupPage() {
   const router = useRouter();
+  const supabase = createClientComponentClient();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullname, setFullname] = useState("");
@@ -39,10 +41,13 @@ export default function SignupPage() {
   const handleGoogle = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/dashboard`, // redirect after login
+      },
     });
 
     if (error) {
-      console.error("Google Sign-In Error:", error);
+      console.error("Google login error:", error.message);
       alert(error.message);
     }
   };

@@ -4,6 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
+import { BsGridFill } from "react-icons/bs";
+import { HiUsers } from "react-icons/hi";
+
 import "./superusersidebar.css";
 
 export default function SuperuserSidebar() {
@@ -32,20 +35,20 @@ export default function SuperuserSidebar() {
   // Only render for superusers
   if (role !== "superuser") return null;
 
-  const navItemClass = (path) =>
-    pathname === path ? "font-bold text-blue-600" : "text-gray-700";
-
   return (
-    <nav className="superuser-nav-container">
-      <Link href="/dashboard" className={navItemClass("/dashboard")}>
-        Dashboard
-      </Link>
-      <Link
-        href="/dashboard/users"
-        className={navItemClass("/dashboard/users")}
-      >
-        Users
-      </Link>
-    </nav>
+    <div className="superuser-nav-container">
+      <div>
+        <span>
+          <BsGridFill />
+        </span>
+        <Link href="/dashboard">Dashboard</Link>
+      </div>
+      <div>
+        <span>
+          <HiUsers />
+        </span>
+        <Link href="/dashboard/users">Users</Link>
+      </div>
+    </div>
   );
 }

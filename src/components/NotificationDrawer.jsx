@@ -30,7 +30,6 @@ export default function NotificationDrawer() {
 
   useEffect(() => {
     fetchTodos();
-    console.log(todos);
   }, [todos]);
 
   return (

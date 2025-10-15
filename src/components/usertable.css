@@ -1,0 +1,24 @@
+.usertable {
+  width: 90%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.usertable th {
+  background: #fafafa;
+  color: #657081;
+}
+.usertable th,
+.usertable td {
+  text-align: left;
+  padding: 10px;
+  vertical-align: left;
+}
+.usertable td {
+  border-bottom: 1px dashed #ddd;
+}
+.usertable td p {
+  color: #989fab;
+}
+.usertable td div {
+  padding-left: 10px;
+}

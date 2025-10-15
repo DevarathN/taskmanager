@@ -4,34 +4,57 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { useRouter } from "next/navigation";
 import "./login.css";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
+    const supabase = createClientComponentClient();
+
+    const getSession = async () => {
+      const { data } = await supabase.auth.getSession();
+      // only redirect if a valid session exists
       if (data.session) {
-        console.log(data.session.user);
         router.push("/dashboard");
       }
-      console.log;
-    });
-  }, []);
+    };
+
+    getSession();
+
+    // also watch for auth changes
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        if (session) {
+          router.push("/dashboard");
+        }
+      }
+    );
+
+    return () => listener.subscription.unsubscribe();
+  }, [router]);
 
   const handleLogin = async () => {
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
-    if (error) return alert(error.message);
+    if (error) {
+      console.log("User not logged in");
+      return alert(error.message);
+    }
     router.push("/dashboard");
   };
 
   const handleGoogle = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/dashboard`, // redirect after login
+      },
     });
+
     if (error) {
       alert(error.message);
     }

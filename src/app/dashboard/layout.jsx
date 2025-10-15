@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
-import Sidebar from "@/components/Sidebar";
+import NavLinks from "@/components/NavLinks";
 import { useRouter } from "next/navigation";
 import NotificationDrawer from "@/components/NotificationDrawer";
 import SuperuserSidebar from "@/components/SuperUserSidebar";
@@ -18,7 +18,7 @@ export default function DashboardLayout({ children }) {
       else {
         setUser(data.session.user);
         supabase
-          .from("profiles")
+          .from("users")
           .select("role")
           .eq("id", data.session.user.id)
           .single()
@@ -32,29 +32,28 @@ export default function DashboardLayout({ children }) {
         else setUser(session.user);
       }
     );
-
     return () => listener.subscription.unsubscribe();
-  }, []);
+  }, [role]);
 
   if (!user) return <div>Loading...</div>;
 
   return (
-    <>
-      <div className="nav-bar">
-        <div style={{ display: "flex", alignItems: "flex-start" }}>
-          <h4>GREEDYGAME</h4>
+    <div style={{ display: "flex" }}>
+      <div>{role === "superuser" ? <SuperuserSidebar /> : ""}</div>
+      <div style={{ width: "100%", padding: "0 20px" }}>
+        <div className="nav-bar">
+          <div style={{ display: "flex", alignItems: "flex-start" }}>
+            <h4>GREEDYGAME</h4>
+          </div>
+
+          <div className="noti-sidebar">
+            <NotificationDrawer />
+            <NavLinks role={role} />
+          </div>
         </div>
 
-        <div className="noti-sidebar">
-          <NotificationDrawer />
-          <Sidebar role={role} />
-        </div>
-      </div>
-      {role === "superuser" ? (
-        <SuperuserSidebar />
-      ) : (
         <main className="flex-1 p4">{children}</main>
-      )}
-    </>
+      </div>
+    </div>
   );
 }

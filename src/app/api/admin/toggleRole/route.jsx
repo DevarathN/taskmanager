@@ -1,7 +1,7 @@
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
 
 export async function GET() {
-  const { data, error } = await supabaseAdmin.from("profiles").select("*");
+  const { data, error } = await supabaseAdmin.from("users").select("*");
   if (error)
     return new Response(JSON.stringify({ error: error.message }), {
       status: 400,
@@ -12,7 +12,7 @@ export async function GET() {
 export async function POST(req) {
   const { userId, newRole } = await req.json();
   const { error } = await supabaseAdmin
-    .from("profiles")
+    .from("users")
     .update({ role: newRole })
     .eq("id", userId);
   if (error)

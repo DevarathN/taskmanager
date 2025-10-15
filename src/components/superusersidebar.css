@@ -1,7 +1,8 @@
 .superuser-nav-container {
   width: 200px;
-  min-height: 100vh;
-  background-color: #f9f9f9;
+  min-height: 100%;
+  height: 100vh;
+  background-color: #21252b;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -9,13 +10,21 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
 }
 
-.superuser-nav-container a {
+.superuser-nav-container * {
+  color: #b8bdc5;
   text-decoration: none;
-  padding: 6px 8px;
-  border-radius: 5px;
-  display: block;
+}
+.superuser-nav-container *:focus {
+  text-decoration: none;
+
+  color: #5cc994;
 }
 
-.superuser-nav-container a:hover {
-  background-color: #e0e0e0;
+.superuser-nav-container div {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.superuser-nav-container a span:focus {
+  color: #5cc994;
 }
