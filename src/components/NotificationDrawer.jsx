@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { MdNotifications } from "react-icons/md";
 import { MdNotificationsActive } from "react-icons/md";
+import { IoMdClose } from "react-icons/io";
 import "./notification.css";
 export default function NotificationDrawer() {
   const [todos, setTodos] = useState([]);
@@ -58,7 +59,7 @@ export default function NotificationDrawer() {
                 style={{ fontSize: "12px", height: "12px" }}
                 onClick={() => setOpen(false)}
               >
-                <img src="/images/close.png" alt="" srcset="" />
+                <IoMdClose style={{ fontSize: "20px" }} />
               </i>
             </div>
 

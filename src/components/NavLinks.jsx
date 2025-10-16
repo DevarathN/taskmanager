@@ -75,11 +75,7 @@ export default function NavLinks({ role }) {
           {open && (
             <div className="profile-dropdown">
               <div>
-                <Link
-                  href="/dashboard/profile"
-                  className="block px-4 py-2 text-sm hover:bg-gray-100"
-                  onClick={() => setOpen(false)}
-                >
+                <Link href="/dashboard/profile" onClick={() => setOpen(false)}>
                   Profile
                 </Link>
               </div>

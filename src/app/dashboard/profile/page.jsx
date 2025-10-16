@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { useRouter } from "next/navigation";
+import { IoMdClose } from "react-icons/io";
 import "./profile.css";
 
 export default function ProfilePage() {
@@ -105,7 +106,7 @@ export default function ProfilePage() {
             onClick={handleClose}
             className="p-1 hover:opacity-70"
           >
-            <img src="/images/close.png" alt="Close" width={16} height={16} />
+            <IoMdClose style={{ fontSize: "20px" }} />
           </button>
         </div>
 
@@ -159,7 +160,7 @@ export default function ProfilePage() {
         </button>
         <hr />
         {todos.length > 0 && (
-          <div className="task-overview">
+          <div className="task-runthrough">
             <div className="total-tasks">
               <p>All ToDos</p>
               <p>{todos.length}</p>

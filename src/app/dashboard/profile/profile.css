@@ -23,7 +23,7 @@
   background-color: white;
   border: none;
 }
-.task-overview {
+.task-runthrough {
   display: flex;
   justify-content: space-around; /* evenly space items */
   gap: 10px; /* was 30px */
@@ -35,27 +35,28 @@
   width: 90%;
 }
 
-.task-overview div {
+.task-runthrough div {
   text-align: center;
   padding: 5px; /* was 10px */
   width: 33%;
 }
 
-.task-overview div:nth-child(1),
-.task-overview div:nth-child(2) {
+.task-runthrough div:nth-child(1),
+.task-runthrough div:nth-child(2) {
   border-right: 1px solid #ccc; /* thinner line */
 }
 
-.task-overview div p:last-of-type {
+.task-runthrough div p:last-of-type {
   font-size: 40px;
   font-weight: 600;
   padding: 0;
   padding: 0;
 }
-.task-overview div p:first-of-type {
+.task-runthrough div p:first-of-type {
   font-size: 15px;
   font-weight: 600;
   padding: 0;
+  color: rgb(87, 87, 87);
 }
 .update-profile-btn {
   background: #e7f7ef;
