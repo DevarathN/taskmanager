@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "@/lib/supabaseClient";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import "./sidebar.css";
 
@@ -13,7 +12,6 @@ export default function NavLinks({ role }) {
   const [user, setUser] = useState(null);
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const supabase = createClientComponentClient();
   const router = useRouter();
   // Fetch current user
   useEffect(() => {
@@ -33,10 +31,10 @@ export default function NavLinks({ role }) {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
+    localStorage.clear();
 
-    // 🧠 Wait a short moment for Supabase to clear cookies
     setTimeout(() => {
-      router.refresh(); // force Next.js to recheck auth cookies
+      router.refresh();
       router.push("/login");
     }, 300);
   };

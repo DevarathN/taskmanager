@@ -1,13 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
 import { useRouter } from "next/navigation";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { supabase } from "@/lib/supabaseClient";
+
 import "./signup.css";
 export default function SignupPage() {
   const router = useRouter();
-  const supabase = createClientComponentClient();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullname, setFullname] = useState("");
@@ -20,7 +19,10 @@ export default function SignupPage() {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
-        options: { data: { full_name: fullname } },
+        options: {
+          data: { full_name: fullname },
+          emailRedirectTo: `${window.location.origin}/login`,
+        },
       });
 
       if (error) {
@@ -42,7 +44,7 @@ export default function SignupPage() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/dashboard`, // redirect after login
+        redirectTo: `${window.location.origin}/dashboard`,
       },
     });
 
