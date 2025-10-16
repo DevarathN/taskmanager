@@ -76,6 +76,7 @@ export default function TodoForm({ fetchTodos, editing, setEditing }) {
             borderRadius: "5px",
             background: "#0CAF60",
             color: "white",
+            boxShadow: "1px 1px 1px 1px #048145ff",
           }}
           onClick={() => {
             setFormOpen((prev) => {

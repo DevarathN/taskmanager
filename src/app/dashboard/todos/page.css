@@ -100,5 +100,20 @@
   background: #e7f7ef;
   color: #0caf60;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
+}
+.edit-icon {
+  background: #f4efff;
+
+  color: #8c62ff;
+}
+.edit-icon,
+.delete-icon {
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 2px;
+}
+.delete-icon {
+  background: #fee9f1;
+  color: #f44e8b;
 }

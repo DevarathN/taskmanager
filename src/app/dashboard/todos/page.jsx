@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
+import { CiEdit } from "react-icons/ci";
+import { GoTrash } from "react-icons/go";
 import TodoForm from "./todoform";
 import "./page.css";
 export default function TodosPage() {
@@ -147,15 +149,11 @@ export default function TodosPage() {
                             setEditing(null);
                           else setEditing(todo);
                         }}
-                        className="text-blue-600"
                       >
-                        <img src="/images/edit-text.png" alt="edit" />
+                        <CiEdit className="edit-icon" />
                       </button>
-                      <button
-                        onClick={() => handleDelete(todo.id)}
-                        className="text-red-600"
-                      >
-                        <img src="/images/bin.png" alt="delete" />
+                      <button onClick={() => handleDelete(todo.id)}>
+                        <GoTrash className="delete-icon" />
                       </button>
                     </div>
                   </td>

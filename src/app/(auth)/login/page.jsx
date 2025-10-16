@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { RiEyeLine } from "react-icons/ri";
+import { RiEyeOffLine } from "react-icons/ri";
 import "./login.css";
 import { supabase } from "@/lib/supabaseClient";
 export default function LoginPage() {
@@ -108,12 +110,9 @@ export default function LoginPage() {
                 setShowPassword((prev) => !prev);
               }}
               className="show-hide-password-icon"
+              style={{ color: "grey" }}
             >
-              {showPassword ? (
-                <img src="/images/password-hide.png" />
-              ) : (
-                <img src="/images/password-show.png" />
-              )}
+              {showPassword ? <RiEyeOffLine /> : <RiEyeLine />}
             </i>
           </div>
         </div>
