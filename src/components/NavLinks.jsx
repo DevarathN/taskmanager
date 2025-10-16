@@ -42,6 +42,10 @@ export default function NavLinks({ role }) {
   return (
     <div>
       <nav className="nav-container">
+        <Link key={"/dashboard/"} href={"/dashboard"}>
+          Dashboard
+        </Link>
+
         <Link key={"/dashboard/todos"} href={"/dashboard/todos"}>
           Todos
         </Link>
