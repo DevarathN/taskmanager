@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
+import { MdNotifications } from "react-icons/md";
+import { MdNotificationsActive } from "react-icons/md";
 import "./notification.css";
 export default function NotificationDrawer() {
   const [todos, setTodos] = useState([]);
@@ -36,13 +38,9 @@ export default function NotificationDrawer() {
     <div>
       <button className="noti-btn" onClick={() => setOpen((prev) => !prev)}>
         {open ? (
-          <i>
-            <img src="/images/ringing.png" alt="" srcset="" />
-          </i>
+          <MdNotificationsActive style={{ fontSize: "20px" }} />
         ) : (
-          <i>
-            <img src="/images/notification.png" alt="" srcset="" />
-          </i>
+          <MdNotifications style={{ fontSize: "20px" }} />
         )}
       </button>
       {open ? (

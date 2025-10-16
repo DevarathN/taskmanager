@@ -2,6 +2,8 @@
   border: none;
   background-color: white;
 }
+.noti-btn {
+}
 .notification-container {
   display: flex;
   flex-direction: column;

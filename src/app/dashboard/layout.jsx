@@ -40,7 +40,7 @@ export default function DashboardLayout({ children }) {
   return (
     <div style={{ display: "flex" }}>
       <div>{role === "superuser" ? <SuperuserSidebar /> : ""}</div>
-      <div style={{ width: "100%", padding: "0 20px" }}>
+      <div style={{ width: "100%" }}>
         <div className="nav-bar">
           <div style={{ display: "flex", alignItems: "flex-start" }}>
             <h4>GREEDYGAME</h4>
@@ -52,7 +52,12 @@ export default function DashboardLayout({ children }) {
           </div>
         </div>
 
-        <main className="flex-1 p4">{children}</main>
+        <main
+          className="flex-1 p4"
+          style={{ background: "#FAFAFA", padding: "20px" }}
+        >
+          {children}
+        </main>
       </div>
     </div>
   );

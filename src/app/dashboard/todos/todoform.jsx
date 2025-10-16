@@ -57,7 +57,12 @@ export default function TodoForm({ fetchTodos, editing, setEditing }) {
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
         <p>
           <strong>All Todos</strong>
         </p>
