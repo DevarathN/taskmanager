@@ -74,3 +74,13 @@
   color: white;
   border: none;
 }
+
+@media screen and (max-width: 1024px) {
+  .login-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .login-form {
+    width: 100%;
+  }
+}

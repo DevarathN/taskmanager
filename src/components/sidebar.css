@@ -27,8 +27,21 @@
   gap: 10px;
   width: 10vw;
   border-radius: 5px;
+  background-color: white;
 }
 .profile-dropdown div button {
   border: none;
   background-color: inherit;
+}
+@media screen and (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+
+    align-items: start;
+    text-align: left;
+  }
+  .profile-dropdown {
+    left: 0;
+    width: 15vw;
+  }
 }

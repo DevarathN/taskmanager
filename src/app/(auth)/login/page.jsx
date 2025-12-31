@@ -66,7 +66,6 @@ export default function LoginPage() {
         <img src="/images/login-signup-hero.jpg" alt="" />
       </div>
       <div className="login-form">
-        <h3>GREEDYGAME</h3>
         <p style={{ fontSize: "30px" }}>Welcome to GGTodo</p>
         <p style={{ color: "grey" }}>To get started, please sign in</p>
         <button onClick={handleGoogle} className="google-authentication login">

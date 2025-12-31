@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabaseClient";
-
+import { RiEyeLine } from "react-icons/ri";
+import { RiEyeOffLine } from "react-icons/ri";
 import "./signup.css";
 export default function SignupPage() {
   const router = useRouter();
@@ -62,7 +63,6 @@ export default function SignupPage() {
         <img src="/images/login-signup-hero.jpg" alt="" />
       </div>
       <div className="signup-form">
-        <h3>GREEDYGAME</h3>
         <p style={{ fontSize: "30px" }}>
           You’re one click away from less busywork
         </p>
@@ -120,11 +120,7 @@ export default function SignupPage() {
               }}
               className="show-hide-password-icon"
             >
-              {showPassword ? (
-                <img src="/images/password-hide.png" />
-              ) : (
-                <img src="/images/password-show.png" />
-              )}
+              {showPassword ? <RiEyeOffLine /> : <RiEyeLine />}
             </i>
           </div>
         </div>

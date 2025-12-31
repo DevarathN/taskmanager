@@ -38,12 +38,12 @@ export default function DashboardLayout({ children }) {
   if (!user) return <div>Loading...</div>;
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="sidebar-navbar-dashboard">
       <div>{role === "superuser" ? <SuperuserSidebar /> : ""}</div>
       <div style={{ width: "100%" }}>
         <div className="nav-bar">
           <div style={{ display: "flex", alignItems: "flex-start" }}>
-            <h4>GREEDYGAME</h4>
+            <h4>TASKMANAGER</h4>
           </div>
 
           <div className="noti-sidebar">

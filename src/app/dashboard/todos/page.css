@@ -117,3 +117,60 @@
   background: #fee9f1;
   color: #f44e8b;
 }
+@media screen and (max-width: 1024px) {
+  .todo-form {
+    height: 35vh;
+    left: 5%;
+    top: 20%;
+    bottom: 50%;
+    width: 70%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .task-overview {
+    flex-direction: column;
+  }
+  .task-overview div {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    text-align: center;
+    align-items: center;
+    padding: 20px !important;
+  }
+  .task-overview div:nth-child(1),
+  .task-overview div:nth-child(2) {
+    border-right: none;
+  }
+  .todo-list th,
+  .todo-list td {
+    font-size: small;
+    padding: 5px;
+  }
+  .status-upcoming {
+    font-size: x-small;
+    padding: 2px !important;
+  }
+  .status-completed {
+    font-size: x-small;
+    padding: 2px !important;
+  }
+  .edit-icon,
+  .delete-icon {
+    font-size: small;
+  }
+  .edit-delete-view {
+    display: flex;
+    gap: 5px;
+  }
+  .todo-form {
+    height: 50vh;
+    left: 5%;
+    top: 50%;
+    bottom: 50%;
+    width: 70%;
+  }
+  .todo-form {
+    height: 60vh;
+  }
+}

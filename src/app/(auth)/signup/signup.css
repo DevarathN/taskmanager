@@ -75,3 +75,13 @@
   color: white;
   border: none;
 }
+@media screen and (max-width: 1024px) {
+  .signup-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .signup-form {
+    width: 100%;
+  }
+}

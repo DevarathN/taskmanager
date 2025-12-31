@@ -22,3 +22,12 @@
 .usertable td div {
   padding-left: 10px;
 }
+@media screen and (max-width: 767px) {
+  .usertable th,
+  .usertable td {
+    font-size: small;
+  }
+  .usertable td p {
+    font-size: x-small;
+  }
+}

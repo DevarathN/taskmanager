@@ -10,3 +10,25 @@
   gap: 10px;
   align-items: center;
 }
+.sidebar-navbar-dashboard {
+  display: flex;
+}
+
+@media screen and (max-width: 1024px) {
+  .sidebar-navbar-dashboard {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 768px) {
+  .noti-sidebar {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 5px;
+  }
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+  }
+}

@@ -28,3 +28,14 @@
 .superuser-nav-container a span:focus {
   color: #5cc994;
 }
+@media screen and (max-width: 1024px) {
+  .superuser-nav-container {
+    width: 100%;
+    height: 5vh;
+
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+}
